@@ -32,8 +32,8 @@
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
             this.labelUser = new System.Windows.Forms.Label();
             this.labelSenha = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
+            this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,21 +71,22 @@
             this.labelSenha.Text = "Senha";
             this.labelSenha.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // textBoxUsuario
             // 
-            this.textBox1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.textBox1.Location = new System.Drawing.Point(184, 222);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxUsuario.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.textBoxUsuario.Location = new System.Drawing.Point(184, 222);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUsuario.TabIndex = 3;
             // 
-            // textBox2
+            // textBoxSenha
             // 
-            this.textBox2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.textBox2.Location = new System.Drawing.Point(184, 257);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBoxSenha.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.textBoxSenha.Location = new System.Drawing.Point(184, 257);
+            this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSenha.TabIndex = 4;
+            this.textBoxSenha.UseSystemPasswordChar = true;
             // 
             // buttonLogin
             // 
@@ -107,6 +108,7 @@
             this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // label1
             // 
@@ -127,8 +129,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxSenha);
+            this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.labelSenha);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.pictureBoxUser);
@@ -149,8 +151,8 @@
         private System.Windows.Forms.PictureBox pictureBoxUser;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelSenha;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxUsuario;
+        private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Label label1;

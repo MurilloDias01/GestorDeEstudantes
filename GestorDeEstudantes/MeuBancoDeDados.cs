@@ -12,7 +12,7 @@ namespace GestorDeEstudantes
     {
         private MySqlConnection conexao = new MySqlConnection("datasource=localhost;port=3306;username=root;passworld=;database=sga_estudantes_bd_t7");
 
-        public MySqlConnection getConxao
+        public MySqlConnection getConexao
         {
             get
             {
