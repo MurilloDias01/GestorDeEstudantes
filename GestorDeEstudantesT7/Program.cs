@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestorDeEstudantes
+namespace GestorDeEstudantesT7
 {
     internal static class Program
     {
@@ -21,7 +21,7 @@ namespace GestorDeEstudantes
             FormLogin formLogin = new FormLogin();
 
             if (formLogin.ShowDialog() == DialogResult.OK)
-            { 
+            {
                 Application.Run(new FormPrincipal());
             }
             else
