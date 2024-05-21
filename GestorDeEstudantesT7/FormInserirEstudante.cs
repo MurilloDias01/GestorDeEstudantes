@@ -50,12 +50,29 @@ namespace GestorDeEstudantesT7
             int anoAtual = DateTime.Now.Year;
 
             if ((anoAtual - anoDeNascsimento) < 10 || (anoAtual - anoDeNascsimento) > 100)
-            { 
+            {
                 MessageBox.Show("O aluno precisa ter entre 10 e 100 anos.",
                     "Ano de nascimento Inválido",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+            else if (verificar())
+            {
+                pictureBoxFoto.Image.Save(foto, pictureBoxFoto.Image.RawFormat);
+                if (estudante.inserirEstudante(nome, sobrenome, nascimento, telefone, genero, endereco, foto))
+                {
+                    MessageBox.Show("Novo aluno cadastrado!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Novo não cadastrado!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Nenhuma informação encontrada!", "Campos não preenchidos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void buttonEnviarFoto_Click(object sender, EventArgs e)
