@@ -36,6 +36,18 @@ namespace GestorDeEstudantesT7
             colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             dataGridViewListaDeAlunos.AllowUserToAddRows = false;
+
+
+        }
+
+        private void buttonAtualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewListaDeAlunos_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }
