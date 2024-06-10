@@ -156,6 +156,7 @@
             this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Telefone";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBoxTelefone
             // 
@@ -163,6 +164,7 @@
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(158, 20);
             this.textBoxTelefone.TabIndex = 10;
+            this.textBoxTelefone.TextChanged += new System.EventHandler(this.textBoxTelefone_TextChanged);
             // 
             // label6
             // 
@@ -173,6 +175,7 @@
             this.label6.Size = new System.Drawing.Size(77, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "Endereço";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBoxEndereco
             // 
@@ -181,6 +184,7 @@
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(158, 48);
             this.textBoxEndereco.TabIndex = 12;
+            this.textBoxEndereco.TextChanged += new System.EventHandler(this.textBoxEndereco_TextChanged);
             // 
             // pictureBoxFoto
             // 
@@ -202,6 +206,7 @@
             this.label7.Size = new System.Drawing.Size(40, 17);
             this.label7.TabIndex = 15;
             this.label7.Text = "Foto";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // buttonEnviarFoto
             // 
@@ -261,6 +266,7 @@
             this.Name = "FormInserirEstudante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Estudante";
+            this.Load += new System.EventHandler(this.FormInserirEstudante_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();
