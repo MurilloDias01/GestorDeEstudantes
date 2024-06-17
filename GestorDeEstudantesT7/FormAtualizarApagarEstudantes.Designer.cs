@@ -301,10 +301,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
-        private System.Windows.Forms.RadioButton radioButtonFeminino;
-        private System.Windows.Forms.RadioButton radioButtonMasculino;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonApagar;
         private System.Windows.Forms.Button buttonEnviarFoto;
@@ -324,5 +320,8 @@
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
+        internal System.Windows.Forms.RadioButton radioButtonFeminino;
+        internal System.Windows.Forms.RadioButton radioButtonMasculino;
     }
 }
