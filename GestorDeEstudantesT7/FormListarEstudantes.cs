@@ -23,66 +23,85 @@ namespace GestorDeEstudantesT7
 
         private void FormListarEstudantes_Load(object sender, EventArgs e)
         {
+            // Preenche o dataGridView com as informações dos estudantes.
             MySqlCommand comando = new MySqlCommand("SELECT * FROM `estudantes`");
-
+            // Impede que os dados exibidos na tabela sejam alterados.
             dataGridViewListaDeAlunos.ReadOnly = true;
-
+            // Cria uma coluna para exibir as fotos dos alunos.
             DataGridViewImageColumn colunaDeFotos = new DataGridViewImageColumn();
-
+            // Determina uma altura padrão para as linhas da tabela.
             dataGridViewListaDeAlunos.RowTemplate.Height = 80;
-
+            // Determina a origem dos dados da tabela.
             dataGridViewListaDeAlunos.DataSource = estudante.getEstudantes(comando);
-
-            colunaDeFotos = (DataGridViewImageColumn)dataGridViewListaDeAlunos.Columns[7];
+            // Determinar qual SERÁ a coluna com as imagens.
+            colunaDeFotos = (DataGridViewImageColumn) dataGridViewListaDeAlunos.Columns[7];
             colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
+            // Impede o usuário de incluir linhas.
             dataGridViewListaDeAlunos.AllowUserToAddRows = false;
-
-
-        }
-
-        private void buttonAtualizar_Click(object sender, EventArgs e)
-        {
 
         }
 
         private void dataGridViewListaDeAlunos_DoubleClick(object sender, EventArgs e)
         {
-            FormAtualizarApagarEstudantes formAtualizarApagarEstudantes = new FormAtualizarApagarEstudantes();
+            // exibir as informaçõe do estudante ao clicar nele duas vezes.
+            FormAtualizarApagarEstudante formAtualizarApagarEstudante = 
+                new FormAtualizarApagarEstudante();
 
-            formAtualizarApagarEstudantes.textBoxId.Text = 
+            formAtualizarApagarEstudante.textBoxID.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[0].Value.ToString();
-            formAtualizarApagarEstudantes.textBoxNome.Text = 
+            formAtualizarApagarEstudante.textBoxNome.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[1].Value.ToString();
-            formAtualizarApagarEstudantes.textBoxSobrenome.Text = 
+            formAtualizarApagarEstudante.textBoxSobrenome.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[2].Value.ToString();
-           
-            formAtualizarApagarEstudantes.dateTimePickerNascimento.Value =
-               (DateTime) dataGridViewListaDeAlunos.CurrentRow.Cells[3].Value;
+            
+            formAtualizarApagarEstudante.dateTimePickerNascimento.Value =
+                (DateTime) dataGridViewListaDeAlunos.CurrentRow.Cells[3].Value;
 
-            if (dataGridViewListaDeAlunos.CurrentRow.Cells[4].Value.ToString() == "Feminino")
-            { 
-               formAtualizarApagarEstudantes.
+            if (dataGridViewListaDeAlunos.CurrentRow.Cells[4].
+                Value.ToString() == "Feminino")
+            {
+                formAtualizarApagarEstudante.
                     radioButtonFeminino.Checked = true;
             }
-            else 
+            else
             {
-                formAtualizarApagarEstudantes.
-                    radioButtonMasculino.Checked = true;
+                formAtualizarApagarEstudante.
+                    radioButtonMasculino.Checked = true;    
             }
 
-            formAtualizarApagarEstudantes.textBoxTelefone.Text =
+            formAtualizarApagarEstudante.textBoxTelefone.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[5].Value.ToString();
-            formAtualizarApagarEstudantes.textBoxEndereco.Text =
+            formAtualizarApagarEstudante.textBoxEndereco.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[6].Value.ToString();
 
+            // A foto.
             byte[] foto;
             foto = (byte[]) dataGridViewListaDeAlunos.CurrentRow.Cells[7].Value;
             MemoryStream fotoDoAluno = new MemoryStream(foto);
-            formAtualizarApagarEstudantes.pictureBoxFoto.Image =
+            formAtualizarApagarEstudante.pictureBoxFoto.Image =
                 Image.FromStream(fotoDoAluno);
 
-            formAtualizarApagarEstudantes.Show();
+            formAtualizarApagarEstudante.Show();
+        }
+
+        private void buttonAtualizar_Click(object sender, EventArgs e)
+        {
+            // atualiza a lista de estudantes.
+            // Preenche o dataGridView com as informações dos estudantes.
+            MySqlCommand comando = new MySqlCommand("SELECT * FROM `estudantes`");
+            // Impede que os dados exibidos na tabela sejam alterados.
+            dataGridViewListaDeAlunos.ReadOnly = true;
+            // Cria uma coluna para exibir as fotos dos alunos.
+            DataGridViewImageColumn colunaDeFotos = new DataGridViewImageColumn();
+            // Determina uma altura padrão para as linhas da tabela.
+            dataGridViewListaDeAlunos.RowTemplate.Height = 80;
+            // Determina a origem dos dados da tabela.
+            dataGridViewListaDeAlunos.DataSource = estudante.getEstudantes(comando);
+            // Determinar qual SERÁ a coluna com as imagens.
+            colunaDeFotos = (DataGridViewImageColumn)dataGridViewListaDeAlunos.Columns[7];
+            colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            // Impede o usuário de incluir linhas.
+            dataGridViewListaDeAlunos.AllowUserToAddRows = false;
         }
     }
 }

@@ -59,7 +59,6 @@
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "ACESSAR";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -70,7 +69,6 @@
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Usuário";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -89,7 +87,6 @@
             this.textBoxUsuario.Size = new System.Drawing.Size(129, 20);
             this.textBoxUsuario.TabIndex = 4;
             this.textBoxUsuario.Text = "admin";
-            this.textBoxUsuario.TextChanged += new System.EventHandler(this.textBoxUsuario_TextChanged);
             // 
             // textBoxSenha
             // 

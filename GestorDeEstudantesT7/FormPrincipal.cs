@@ -19,13 +19,13 @@ namespace GestorDeEstudantesT7
 
         private void estudanteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void listaDeEstudantToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormListarEstudantes formListarEstudantes = new FormListarEstudantes();
-            formListarEstudantes.Show(this);
+            FormListarEstudantes formListarEstudante = new FormListarEstudantes();
+            formListarEstudante.Show(this);
         }
 
         private void novoEstudanteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,12 +36,14 @@ namespace GestorDeEstudantesT7
 
         private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormEstatisticas estatisticas = new FormEstatisticas(); 
+            estatisticas.Show(this);
         }
 
         private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormAtualizarApagarEstudante atualizarApagarEstudante = new FormAtualizarApagarEstudante();
+            atualizarApagarEstudante.Show();
         }
 
         private void gerenciarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,11 +52,6 @@ namespace GestorDeEstudantesT7
         }
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
         {
 
         }
