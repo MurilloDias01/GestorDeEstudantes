@@ -93,8 +93,8 @@ namespace GestorDeEstudantesT7
             }
             catch
             {
-                MessageBox.Show("Ocorreu um erro!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }       
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         bool Verificar()
@@ -148,10 +148,10 @@ namespace GestorDeEstudantesT7
                     }
                 }
             }
-            catch 
+            catch
             {
-                MessageBox.Show("Ocorreu um erro!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error) ;
-            }    
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Variável global do tipo MeuBancoDeDados...
