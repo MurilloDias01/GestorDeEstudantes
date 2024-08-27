@@ -112,8 +112,8 @@ namespace GestorDeEstudantesT7
                 MessageBox.Show("Não tem foto para baixar.");
             }
             else
+            if (salvarArquivo.ShowDialog() == DialogResult.OK)
             {
-                salvarArquivo.ShowDialog();
                 pictureBoxFoto.Image.Save(salvarArquivo.FileName + ("." +
                     ImageFormat.Jpeg.ToString()));
             }
@@ -126,5 +126,138 @@ namespace GestorDeEstudantesT7
             MySqlCommand comando = new MySqlCommand(pesquisa);
             preencheTabela(comando);
         }
-    }
-}
+
+        private void buttonIncluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Esta linha só existe em "buttonSalvar_Click(...)"
+                int id = Convert.ToInt32(textBoxID.Text);
+
+                string nome = textBoxNome.Text;
+                string sobrenome = textBoxSobrenome.Text;
+                DateTime nascimento = dateTimePickerNascimento.Value;
+                string telefone = textBoxTelefone.Text;
+                string endereco = textBoxEndereco.Text;
+                string genero = "Feminino";
+
+                if (radioButtonMasculino.Checked == true)
+                {
+                    genero = "Masculino";
+                }
+
+                MemoryStream foto = new MemoryStream();
+
+                // Verificar se o aluno tem entre 10 e 100 anos.
+                int anoDeNascimento = dateTimePickerNascimento.Value.Year;
+                int anoAtual = DateTime.Now.Year;
+
+                if ((anoAtual - anoDeNascimento) < 10 || (anoAtual - anoDeNascimento) > 100)
+                {
+                    MessageBox.Show("O aluno precisa ter entre 10 e 100 anos.",
+                        "Ano de nascimento inválido",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else if (Verificar())
+                {
+                    pictureBoxFoto.Image.Save(foto, pictureBoxFoto.Image.RawFormat);
+
+                    if (estudante.atualizarEstudantes(id, nome, sobrenome, nascimento, telefone,
+                        genero, endereco, foto))
+                    {
+                        MessageBox.Show("Dados salvos!", "Sucesso!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Preenche a tabela com os alunos do banco de dados.
+                        preencheTabela(new MySqlCommand("SELECT * FROM `estudantes`"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível salvar!", "Erro!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Existem campos não preenchidos!", "Campos não preenchidos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Referência a ID do aluno.
+                int idDoAluno = Convert.ToInt32(textBoxID.Text);
+
+                // Mostrar uma caixa de diálogo perguntando se o usuário
+                // tem certeza de que quer apagar o aluno.
+                if (MessageBox.Show("Tem certeza que deseja apagar o aluno?",
+                    "Apagar Estudante", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (estudante.apagarEstudante(idDoAluno))
+                    {
+                        MessageBox.Show("Aluno apagado!",
+                            "Apagar Estudante", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        // Limpa as caixas de texto.
+                        textBoxID.Text = "";
+                        textBoxNome.Text = "";
+                        textBoxTelefone.Text = "";
+                        textBoxEndereco.Text = "";
+                        dateTimePickerNascimento.Value = DateTime.Now;
+                        pictureBoxFoto.Image = null;
+
+                        // Preenche a tabela com os alunos do banco de dados.
+                        preencheTabela(new MySqlCommand("SELECT * FROM `estudantes`"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aluno não apagado!",
+                            "Apagar Estudante", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonAtualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        bool Verificar()
+        { // método Verificar() começa aqui
+            if ((textBoxNome.Text.Trim() == "") ||
+               (textBoxSobrenome.Text.Trim() == "") ||
+               (textBoxTelefone.Text.Trim() == "") ||
+               (textBoxEndereco.Text.Trim() == "") ||
+               (pictureBoxFoto.Image == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        } // e termina aqui.
+    } // fim da classe
+} // fim do namespace
