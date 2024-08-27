@@ -70,20 +70,20 @@ namespace GestorDeEstudantesT7
             string busca;
 
             if (radioButtonSim.Checked == true)
-            { 
+            {
                 string dataInicial = dateTimePickerDataInicial.Value.ToString("dd-MM-yyyy");
                 string dataFinal = dateTimePickerDataFinal.Value.ToString("dd-MM-yyyy");
 
                 if (radioButtonMasculino.Checked)
                 {
                     busca = "SELECT * FROM `estudantes` WHERE `nascimento` BETWEEN '"
-                        + dataInicial + "' AND '" 
+                        + dataInicial + "' AND '"
                         + dataFinal + "' AND genero = 'Masculino'";
                 }
                 else if (radioButtonFeminino.Checked)
                 {
-                    busca = "SELECT * FROM `estudantes` WHERE `nascimento` BETWEEN '" 
-                        + dataInicial + "' AND '" 
+                    busca = "SELECT * FROM `estudantes` WHERE `nascimento` BETWEEN '"
+                        + dataInicial + "' AND '"
                         + dataFinal + "' AND genero = 'Feminino'";
                 }
                 else
@@ -92,10 +92,33 @@ namespace GestorDeEstudantesT7
                       + dataInicial + "' AND '"
                       + dataFinal + "'";
                 }
-                comando = new MySqlCommand( busca );
+                comando = new MySqlCommand(busca);
                 preencheTabela(comando);
             }
 
+            if (radioButtonSim.Checked == true)
+            {
+                string dataInicial = dateTimePickerDataInicial.Value.ToString("dd-MM-yyyy");
+                string dataFinal = dateTimePickerDataFinal.Value.ToString("dd-MM-yyyy");
+
+                if (radioButtonMasculino.Checked)
+                {
+                    busca = "SELECT * FROM `estudantes` WHERE `nascimento`'";
+
+                }
+                else if (radioButtonFeminino.Checked)
+                {
+                    busca = "SELECT * FROM `estudantes` WHERE `nascimento`'";
+
+                }
+                else
+                {
+                    busca = "SELECT * FROM `estudantes`";
+
+                }
+                comando = new MySqlCommand(busca);
+                preencheTabela(comando);
+            }
         }
     }
 }
