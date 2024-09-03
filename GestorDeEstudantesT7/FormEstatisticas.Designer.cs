@@ -41,7 +41,7 @@
             // 
             // panelTotalDeEstudantes
             // 
-            this.panelTotalDeEstudantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panelTotalDeEstudantes.BackColor = System.Drawing.Color.Maroon;
             this.panelTotalDeEstudantes.Controls.Add(this.labelTotalDeEstudantes);
             this.panelTotalDeEstudantes.Location = new System.Drawing.Point(12, 12);
             this.panelTotalDeEstudantes.Name = "panelTotalDeEstudantes";
@@ -66,7 +66,7 @@
             // 
             // panelMeninos
             // 
-            this.panelMeninos.BackColor = System.Drawing.Color.Yellow;
+            this.panelMeninos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panelMeninos.Controls.Add(this.labelMeninos);
             this.panelMeninos.Location = new System.Drawing.Point(12, 222);
             this.panelMeninos.Name = "panelMeninos";
@@ -91,7 +91,7 @@
             // 
             // panelMeninas
             // 
-            this.panelMeninas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelMeninas.BackColor = System.Drawing.Color.Gainsboro;
             this.panelMeninas.Controls.Add(this.labelMeninas);
             this.panelMeninas.Location = new System.Drawing.Point(369, 222);
             this.panelMeninas.Name = "panelMeninas";
